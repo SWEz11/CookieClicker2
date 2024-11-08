@@ -7,9 +7,9 @@ public class Clicker : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public int score;
     public TMP_Text scoreText;
-    void Start()
+    public int score;
+    private void Update()
     {
         scoreText.text = score.ToString();
     }
