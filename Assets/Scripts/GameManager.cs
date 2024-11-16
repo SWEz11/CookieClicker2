@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Load();
         clicksperclick = 1;
     }
     void Update()
@@ -21,11 +22,27 @@ public class GameManager : MonoBehaviour
         {
             transform.localScale -= Vector3.one * 0.1f;
         }
+        SaveScore();
     }
 
     void OnMouseDown()
     {
         transform.localScale = Vector3.one * 1.5f;
         score += clicksperclick;
+    }
+
+    public void SaveScore()
+    {
+        PlayerPrefs.SetInt("score", score);
+    }
+
+    void OnApplicationQuit()
+    {
+        SaveScore();
+    }
+
+    void Load()
+    {
+        score = PlayerPrefs.GetInt("score");
     }
 }
