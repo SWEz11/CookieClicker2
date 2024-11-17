@@ -22,6 +22,7 @@ public class Shop : MonoBehaviour
     public float clickTimer;
     public bool setchef;
     public float time;
+    public AudioSource buySound;
     void Start()
     {
         Load();
@@ -84,6 +85,7 @@ public class Shop : MonoBehaviour
         chefcount++;
         setchef = true;
         gameManager.clicksperclick += chefcount;
+        buySound.Play();
         SaveChefCount();
     }
     
@@ -99,6 +101,7 @@ public class Shop : MonoBehaviour
         upgradePrice *= 5;
         chefprice *= 3;
         upgradecount++;
+        buySound.Play();
         SaveChefUpgrade();
     }
 

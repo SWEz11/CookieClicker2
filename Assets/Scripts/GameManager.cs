@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public Sprite[] nextpartical;
     int skinIndex;
     public GameObject unlockpartical;
+    public AudioSource clickSound;
+    public AudioSource unlockSound;
 
     void Start()
     {
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
         if(skinIndex < clickgoal.Length && score >= clickgoal[skinIndex])
         {
             spriteRenderer.sprite = nextcookie[skinIndex++];
+            unlockSound.Play();
             unlockpartical.SetActive(false);
             unlockpartical.SetActive(true);
         }
@@ -43,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         transform.localScale = Vector3.one * 1.5f;
         score += clicksperclick;
+        clickSound.Play();
     }
 
     public void SaveScore()
