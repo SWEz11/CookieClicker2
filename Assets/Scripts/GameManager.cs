@@ -33,9 +33,9 @@ public class GameManager : MonoBehaviour
 
         if(skinIndex < clickgoal.Length && score >= clickgoal[skinIndex])
         {
-            unlockpartical.SetActive(true);
             spriteRenderer.sprite = nextcookie[skinIndex++];
-            particalRenderes.sprite = nextpartical[skinIndex++];
+            unlockpartical.SetActive(false);
+            unlockpartical.SetActive(true);
         }
     }
 
